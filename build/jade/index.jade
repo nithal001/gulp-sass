@@ -1,14 +1,30 @@
 doctype html
-html(lang="en")
+html
 	head
-		title= pageTitle
-		style(src='css/bootstrap/bootstrap.css')
-		style(src='css/main.css')
+		title Demo App
+		link(href='css/bootstrap/bootstrap.css', type='text/css', rel='stylesheet')
+		link(href='css/style.css', type='text/css', rel='stylesheet')
 		script(type='text/javascript')
 	body
+		<!--main content starts-->
 		div.main
-			header.global-header
+			<!--header starts-->
+			header.global-header.container
 				div.logo
 					h1
 						a(href='#')
 							img(src='images/logo.png')
+				nav.global-navigation
+					mixin global-nav(value)
+						li
+							a(href='#')= value
+					ul
+						+global-nav('HOME')
+						+global-nav('ABOUT')
+						+global-nav('PROJECTS')
+						+global-nav('BLOG')
+						+global-nav('CONTACT')
+			<!--spotlight starts-->
+			section.wrap-spotlight
+
+

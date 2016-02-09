@@ -564,17 +564,13 @@ body
     src: url('../fonts/DINNextLTArabic-Medium.eot');
     src: url('../fonts/DINNextLTArabic-Medium.woff') format('woff'), url('../fonts/DINNextLTArabic-Medium.ttf') format('truetype'), url('../fonts/DINNextLTArabic-Medium.svg') format('svg');
 }
-.home
+.main
 {
     position: relative;
 }
-.home .gg
+.main .global-header
 {
-    position: absolute;
-}
-.home .ggg
-{
-    position: static;
+    position: relative;
 }
 
 .about
