@@ -1,0 +1,61 @@
+body {
+    margin: 0;
+    padding: 0;
+}
+.app {
+    font-size: 18px;
+    h1,
+    h2,
+    h3,
+    h4,
+    h5,
+    h6 {
+        font-family: $light-font;
+        font-weight: normal;
+        margin: 0;
+    }
+    a {
+        color: $textcolor;
+        text-decoration: none;
+        cursor: pointer;
+        &:hover,
+        &:focus,
+        &:active {
+            color: $primarycolor;
+        }
+    }
+    ul {
+        margin: 0;
+        padding: 0;
+        list-style: none;
+        li {
+            list-style-type: none;
+        }
+    }
+    input[type=number]::-webkit-inner-spin-button,
+    input[type=number]::-webkit-outer-spin-button {
+        -webkit-appearance: none;
+        -moz-appearance: none;
+        margin: 0;
+    }
+    input[type=number] {
+        -moz-appearance: textfield;
+    }
+
+    ::-ms-clear {
+        display: none;
+    }
+    input[type="text"],
+    select,
+    textarea {
+        color: $black;
+        font-family: $light-font;
+        font-size: 14px;
+        min-height: 36px;
+    }
+    img {
+        border: none;
+        border-style: none;
+    }
+}
+ 

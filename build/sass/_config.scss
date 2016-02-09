@@ -1,0 +1,331 @@
+// Color definitions
+$primarycolor: #8dc63f;
+$textcolor: #333;
+$linkcolor: $textcolor;
+$linkhover: $primarycolor;
+$footer-text-color: #a7a9ac;
+$white: #fff;
+$black: #000;
+$green: #8fbc5a;
+$red: #ff4040;
+$blue: #001e80;
+$grey: #6D6E71;
+$gold: #e7b511;
+$orange: #fd8f00;
+$em-base: 18;
+$horizontal-line-color: #e5ebeb;
+$step-number-color: #aeb3b6;
+$required-text-color: #767676;
+$step-circle-base-color: #e5e7e8;
+$step-circle-fill-color: #aeb3b6;
+$personal-info-bg: #FBFBFB;
+$header-article-color: $step-number-color;
+$subsection-title-color: #DDD;
+$step-subheader-color: #666;
+$msg-bg: #a2a2a2;
+$select-option-bg: #f1f2f2;
+$label-color: #6E6E6E;
+$input-text-bg: #ebecec;
+$tooltip-bg: #9C9C9C;
+$profilepic-border-color: #d7d7d7;
+$time-picker-border: #CCC;
+$time-picker-header-bg: #d3d3d3;
+
+//Font Specifications
+$light-font: 'DINNextLTArabic-Light';
+$medium-font: 'DINNextLTArabic-Medium';
+
+@font-face {
+  font-family: 'DINNextLTArabic-Light';
+  src: url("../fonts/DINNextLTArabic-Light.eot");
+  src: url("../fonts/DINNextLTArabic-Light.woff") format("woff"), url("../fonts/DINNextLTArabic-Light.ttf") format("truetype"), url("../fonts/DINNextLTArabic-Light.svg") format("svg");
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'DINNextLTArabic-Medium';
+  src: url("../fonts/DINNextLTArabic-Medium.eot");
+  src: url("../fonts/DINNextLTArabic-Medium.woff") format("woff"), url("../fonts/DINNextLTArabic-Medium.ttf") format("truetype"), url("../fonts/DINNextLTArabic-Medium.svg") format("svg");
+  font-weight: normal;
+  font-style: normal;
+}
+
+//Mixins
+// Functions
+
+// Convert pixels to ems
+// eg. for a relational value of 12px write em(12) when the parent is 16px
+// if the parent is another value say 24px write em(12, 24)
+
+@function em($pxval, $base: $em-base) {
+  @if not unitless($pxval) {
+    $pxval: strip-units($pxval);
+  }
+  @if not unitless($base) {
+    $base: strip-units($base);
+  }
+  @return $pxval / $base * 1em;
+}
+
+//Readmore
+%readmore {
+  font-size: em(16);
+  text-transform: uppercase;
+  font-family: $light-font;
+}
+
+//Clearfix
+%clearfix {
+  &:after {
+    content: "";
+    display: table;
+    clear: both;
+  }
+}
+
+//wrap text
+
+%textwrap {
+    overflow-wrap: break-word;
+    word-wrap: break-word;
+    -webkit-hyphens: auto;
+    -ms-hyphens: auto;
+    -moz-hyphens: auto;
+    hyphens: auto;
+}
+
+//select bg image
+@mixin selectbackground($bgimage: url(../images/sprite.png) no-repeat -405px -435px,$height: 12px,$mrgintop: -4.5px) {
+    background: $bgimage;
+    content: "";
+    height: $height;
+    margin-top: $mrgintop;
+    position: absolute;
+    right: 15px;
+    top: 56%;
+    width: 18px;
+}
+
+
+// Arrow
+@mixin arrow($direction: top, $size: 10px, $color: #ccc, $center: 50%, $margin: -1px, $pseudo: before, $pos: relative) {
+  position: $pos;
+  border-color: $color;
+  &:#{$pseudo} {
+    position: absolute;
+    content: "";
+    width: 0;
+    height: 0;
+    border-color: $color;
+    @if $direction == "right" {
+      top: $center;
+      left: 100%;
+      margin-left: $margin;
+      margin-top: $size * -1;
+      border-top: $size solid transparent;
+      border-bottom: $size solid transparent;
+      border-left: $size solid $color;
+      border-left-color: inherit;
+    }
+    @else if $direction == "down" {
+      top: 100%;
+      left: $center;
+      margin-top: $margin;
+      margin-left: $size * -1;
+      border-left: $size solid transparent;
+      border-right: $size solid transparent;
+      border-top: $size solid $color;
+      border-top-color: inherit;
+    }
+    @else if $direction == "left" {
+      top: $center;
+      right: 100%;
+      margin-right: $margin;
+      margin-top: $size * -1;
+      border-top: $size solid transparent;
+      border-bottom: $size solid transparent;
+      border-right: $size solid $color;
+      border-right-color: inherit;
+    }
+    @else {
+      bottom: 100%;
+      left: $center;
+      margin-bottom: $margin;
+      margin-left: $size * -1;
+      border-left: $size solid transparent;
+      border-right: $size solid transparent;
+      border-bottom: $size solid $color;
+      border-bottom-color: inherit;
+    }
+  }
+}
+
+// Media queries
+$scr-320: 320px;
+$scr-360: 360px;
+$scr-481: 481px;
+$scr-520: 520px;
+$scr-600: 600px;
+$scr-667: 667px;
+$scr-767: 767px;
+$scr-768: 768px;
+$scr-800: 800px;
+$scr-979: 979px;
+$scr-991: 991px;
+$scr-1024: 1024px;
+$scr-1055: 1055px;
+$scr-1199: 1199px;
+$scr-1200: 1200px;
+$scr-1279: 1279px;
+$scr-1280: 1280px;
+$scr-1320: 1320px;
+$scr-1321: 1321px;
+$scr-1400: 1400px;
+$scr-1500: 1500px;
+$scr-1600: 1600px;
+$scr-2000: 2000px;
+
+@mixin scr-320 {
+    @media (max-width: #{$scr-320}) {
+        @content;
+    }
+}
+
+@mixin scr-360 {
+    @media (max-width: #{$scr-360}) {
+        @content;
+    }
+}
+
+@mixin scr-481 {
+    @media (max-width: #{$scr-481}) {
+        @content;
+    }
+}
+
+@mixin scr-520 {
+    @media (max-width: #{$scr-520}) {
+        @content;
+    }
+}
+
+@mixin scr-667 {
+    @media (max-width: #{$scr-667}) {
+        @content;
+    }
+}
+
+@mixin scr-600 {
+    @media (max-width: #{$scr-600}) {
+        @content;
+    }
+}
+
+@mixin scr-767 {
+    @media (max-width: #{$scr-767}) {
+        @content;
+    }
+}
+
+@mixin scr-768 {
+    @media (min-width: #{$scr-768}) {
+        @content;
+    }
+}
+
+@mixin scr-800 {
+    @media (max-width: #{$scr-800}) {
+        @content;
+    }
+}
+
+@mixin scr-979 {
+    @media (max-width: #{$scr-979}) {
+        @content;
+    }
+}
+
+@mixin scr-991 {
+    @media (max-width: #{$scr-991}) {
+        @content;
+    }
+}
+
+@mixin scr-1024 {
+    @media (max-width: #{$scr-1024}) {
+        @content;
+    }
+}
+
+@mixin scr-1025 {
+    @media (min-width: #{$scr-1024}) {
+        @content;
+    }
+}
+
+@mixin scr-1055 {
+    @media (max-width: #{$scr-1055}) {
+        @content;
+    }
+}
+
+@mixin scr-1199 {
+    @media (max-width: #{$scr-1199}) {
+        @content;
+    }
+}
+
+@mixin scr-1200 {
+    @media (min-width: #{$scr-1200}) {
+        @content;
+    }
+}
+
+@mixin scr-1279 {
+    @media (max-width: #{$scr-1279}) {
+        @content;
+    }
+}
+
+@mixin scr-1280 {
+    @media (min-width: #{$scr-1280}) {
+        @content;
+    }
+}
+
+@mixin scr-1320 {
+    @media (max-width: #{$scr-1320}) {
+        @content;
+    }
+}
+
+@mixin scr-1321 {
+    @media (min-width: #{$scr-1321}) {
+        @content;
+    }
+}
+
+@mixin scr-1400 {
+    @media (max-width: #{$scr-1400}) {
+        @content;
+    }
+}
+
+@mixin scr-1500 {
+    @media (max-width: #{$scr-1500}) {
+        @content;
+    }
+}
+
+@mixin scr-1600 {
+    @media (max-width: #{$scr-1600}) {
+        @content;
+    }
+}
+
+@mixin scr-2000 {
+    @media (min-width: #{$scr-2000}) {
+        @content;
+    }
+}
