@@ -12,19 +12,85 @@ html
 			header.global-header.container
 				div.logo
 					h1
-						a(href='#')
-							img(src='images/logo.png')
+						a(href='#', title='Demo App')
+							img(src='images/logo.png', alt='Demo App')
 				nav.global-navigation
-					mixin global-nav(value)
+					h2.hidden Global Navigation
+					mixin global-nav(value, title)
 						li
-							a(href='#')= value
+							a(href='#', title=title)= value
 					ul
-						+global-nav('HOME')
-						+global-nav('ABOUT')
-						+global-nav('PROJECTS')
-						+global-nav('BLOG')
-						+global-nav('CONTACT')
+						+global-nav('HOME', 'Home')
+						+global-nav('ABOUT', 'About')
+						+global-nav('PROJECTS', 'Projects')
+						+global-nav('BLOG', 'Blog')
+						+global-nav('CONTACT', 'Contact')
 			<!--spotlight starts-->
 			section.wrap-spotlight
+				h2.hidden Spotlight 
+				.container
+					img(src='images/spotlight.jpg', class='img-responsive')
+					.spot-details.container
+						h3 Spot Details Heading
+						a(class='read-more', href='#')
+					section.spot-features-project
+						h3 Featured Projects
+						mixin main-project-list(value,title)
+							li
+								a(href='#')
+									article
+										h5.hidden=title
+										img(src= value, alt=title)
+						ul
+							+main-project-list('images/project1.jpg', 'Project1')
+							+main-project-list('images/project2.jpg', 'Project2')
+							+main-project-list('images/project3.jpg', 'Project3')
+							+main-project-list('images/project4.jpg', 'Project4')
+			<!--our mission starts-->
+			section.our-mission
+				.container
+					h2 Our Mission
+					p lorem ispum
+			<!--gallery starts-->
+			.wrap-gallery
+				section.featured-video.container
+					h2.hidden Gallery
+					.row
+						section.col-sm-6
+							h3 Featured Video
+							a(href='#')
+								img(src='images/video.jpg', alt='Video')
+						section.col-sm-6
+							h3 Latest Blog
+							mixin blog-list(value,title,date)
+								li
+									a(href='#')
+										article
+											img(src= value, alt=title)
+											h4=title
+											span=date
+											a(href='#') Read More
+							ul
+								+blog-list('images/blog1.jpg', 'Blog1', ' February 6, 2023')
+								+blog-list('images/blog2.jpg', 'Blog2', ' February 6, 2023')
+			footer.wrap-footer
+				.footer-top
+					.container
+						h2 Follow our mission on
+						mixin social-links(className)
+							li
+								a(href='#', class=className)
+						ul
+							+social-links('facebook-link')
+							+social-links('twitter-link')
+							+social-links('googleplus-link')
+							+social-links('pinterest-link')
+				.footer-bottom
+					.container
+						p © 2023 BY SPACE PROSPECTION | ALL RIGHTS RESERVED
+
+
+
+
 
 
