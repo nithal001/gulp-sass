@@ -64,6 +64,10 @@ $audiowide-regular: 'audiowide-regular-webfont';
   @return $pxval / $base * 1em;
 }
 
+%common-syle-ul {
+  margin: 0;
+  list-style-type: none;
+}
 //Readmore
 %readmore {
   font-size: em(16);

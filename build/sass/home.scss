@@ -1,32 +1,128 @@
 /*home style*/
 .main {
   background: url('../images/bg-home.jpg') no-repeat center top;
-    .global-header {
-      position: relative;
-      height: 60px;
-      background: url('../images/bg-transparent1.png');
+  .global-header {
+    position: relative;
+    height: 60px;
+    background: url('../images/bg-transparent1.png');
+  }
+  .logo {
+    @include floatElement(left);
+    width: 304px;
+    h1 {
+      margin: 0;
     }
-    .logo {
+  }
+  .global-navigation {
+    position: relative;
+    background-color: transparent;
+    @include floatElement(right);
+    margin-top: 20px;
+    @include respond-to(mq-768) {
+      margin-top: 5px;
+    }
+    ul {
+      @extend %common-syle-ul;
+      @include respond-to(mq-768) {
+        position: absolute;
+        top: 100%;
+      }
+    }
+    li {
       @include floatElement(left);
-      width: 304px;
-      h1 {
-        margin: 0;
+      padding: 0 10px;
+      @include respond-to(mq-992) {
+        padding: 0 6px;
       }
-    }
-    .global-navigation {
-      @include floatElement(right);
-      margin-top: 14px;
-      ul {
-        list-style-type: none;
+      @include respond-to(mq-768) {
+        float: none;
       }
-      li {
-        @include floatElement(left);
-        padding: 0 10px;
-        a {
-          font-family: $default-font;
-          font-size: 18px;
-          color: $white;
+      a {
+        font-family: $default-font;
+        font-size: 18px;
+        color: $white;
+        @include respond-to(mq-992) {
+          font-size: 16px;
         }
       }
     }
+  }
+  .wrap-spot-details {
+    position: relative;
+    z-index: 2;
+    .spot-image {
+      margin-top: 25px;
+    }
+  }
+  .spot-details {
+    margin-top:180px;
+    h3 {
+      text-transform: uppercase;
+      color: $white;
+      font-size: 36px;
+    }
+    .read-more {
+      background: $black;
+      width: 150px;
+      height: 50px;
+      color: $grey;
+      display: block;
+      text-transform: uppercase;
+      font-size: 18px;
+      padding: 12px 0 0 15px;
+    }
+  }
+  .spot-features-project {
+    background: url('../images/bg-transparent1.png');
+    padding: 17px 0 10px;
+    height: 50px;
+    margin-top: -34px;
+    h3 {
+      margin: 0 0 9px;
+      text-align: left;
+      text-transform: uppercase;
+      font-size: 22px;
+      color: #A3A3A3;
+    }
+    ul {
+      @extend %common-syle-ul;
+    }
+    li {
+      @include floatElement(left);
+      padding:0;
+      img {
+        width: 100%;
+      }
+    }
+  }
+  .our-mission {
+    background:#630031;
+    height: 168px;
+  }
+  .wrap-gallery {
+    background: $black;
+    min-height: 400px;
+    padding-top: 10px;
+    h3 {
+      font-size: 32px;
+      line-height: 32px;
+      text-transform: uppercase;
+      color: $white;
+    }
+    .featured-video {
+      .video-link {
+        position: relative;
+        display: block;
+        &:after {
+          content: "";
+          background: url('../images/icons.png')no-repeat 0 -152px;
+          position: absolute;
+          left: 50%;
+          top: 50%;
+          width: 62px;
+          height: 72px;
+        }
+      }
+    }
+  }
 }

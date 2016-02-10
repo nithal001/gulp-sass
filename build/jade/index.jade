@@ -4,7 +4,8 @@ html
 		title Demo App
 		link(href='css/bootstrap/bootstrap.css', type='text/css', rel='stylesheet')
 		link(href='css/style.css', type='text/css', rel='stylesheet')
-		script(type='text/javascript')
+		script(src='js/jquery-1.11.1.min.js')
+		script(src='js/bootstrap.min.js')
 	body
 		<!--main content starts-->
 		div.main
@@ -15,12 +16,17 @@ html
 						h1
 							a(href='#', title='Demo App')
 								img(src='images/logo.png', alt='Demo App')
-					nav.global-navigation
+					nav.global-navigation.navbar-default
 						h2.hidden Global Navigation
+						button(type='button', class='navbar-toggle collapsed', data-toggle='collapse', aria-expanded='false', data-target='#navbar-collapse-1')
+							span.sr-only Toggle navigation
+							span.icon-bar
+							span.icon-bar
+							span.icon-bar
 						mixin global-nav(value, title)
 							li
 								a(href='#', title=title)= value
-						ul
+						ul.collapse.navbar-collapse#navbar-collapse-1
 							+global-nav('HOME', 'Home')
 							+global-nav('ABOUT', 'About')
 							+global-nav('PROJECTS', 'Projects')
@@ -30,23 +36,25 @@ html
 			section.wrap-spotlight
 				h2.hidden Spotlight 
 				.container
-					img(src='images/spotlight.jpg', class='img-responsive')
-					.spot-details.container
-						h3 Spot Details Heading
-						a(class='read-more', href='#')
+					.row.wrap-spot-details
+						.spot-image.col-md-6
+							img(src='images/satellite.png', class='img-responsive')
+						.spot-details.col-md-6
+							h3 Spot Details Heading
+							a(class='read-more', href='#') Read More
 					section.spot-features-project
 						h3 Featured Projects
 						mixin main-project-list(value,title)
-							li
+							li.col-md-3
 								a(href='#')
 									article
 										h5.hidden=title
 										img(src= value, alt=title)
 						ul
-							+main-project-list('images/project1.jpg', 'Project1')
-							+main-project-list('images/project2.jpg', 'Project2')
-							+main-project-list('images/project3.jpg', 'Project3')
-							+main-project-list('images/project4.jpg', 'Project4')
+							+main-project-list('images/project-image1.jpg', 'Project1')
+							+main-project-list('images/project-image2.jpg', 'Project2')
+							+main-project-list('images/project-image3.jpg', 'Project3')
+							+main-project-list('images/project-image4.jpg', 'Project4')
 			<!--our mission starts-->
 			section.our-mission
 				.container
@@ -59,8 +67,8 @@ html
 					.row
 						section.col-sm-6
 							h3 Featured Video
-							a(href='#')
-								img(src='images/video.jpg', alt='Video')
+							a(href='#', class="video-link")
+								img(src='images/mars-rover.jpg', alt='Video')
 						section.col-sm-6
 							h3 Latest Blog
 							mixin blog-list(value,title,date)
@@ -90,9 +98,3 @@ html
 				.footer-bottom
 					.containers
 						p © 2023 BY SPACE PROSPECTION | ALL RIGHTS RESERVED
-
-
-
-
-
-

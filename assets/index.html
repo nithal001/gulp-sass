@@ -5,7 +5,8 @@
   <title>Demo App</title>
   <link href="css/bootstrap/bootstrap.css" type="text/css" rel="stylesheet">
   <link href="css/style.css" type="text/css" rel="stylesheet">
-  <script type="text/javascript"></script>
+  <script src="js/jquery-1.11.1.min.js"></script>
+  <script src="js/bootstrap.min.js"></script>
 </head>
 
 <body>
@@ -16,51 +17,53 @@
       <div class="container">
         <div class="logo">
           <h1><a href="#" title="Demo App"><img src="images/logo.png" alt="Demo App"></a></h1></div>
-        <nav class="global-navigation">
-          <h2 class="hidden">Global Navigation</h2>
-          <ul>
+        <nav class="global-navigation navbar-default">
+          <h2 class="hidden">Global Navigation</h2><button type="button" data-toggle="collapse" aria-expanded="false" data-target="#navbar-collapse-1" class="navbar-toggle collapsed"><span class="sr-only">Toggle navigation</span><span class="icon-bar"></span><span class="icon-bar"></span><span class="icon-bar"></span></button>
+          <ul
+            id="navbar-collapse-1" class="collapse navbar-collapse">
             <li><a href="#" title="Home">HOME</a></li>
             <li><a href="#" title="About">ABOUT</a></li>
             <li><a href="#" title="Projects">PROJECTS</a></li>
             <li><a href="#" title="Blog">BLOG</a></li>
             <li><a href="#" title="Contact">CONTACT</a></li>
-          </ul>
+            </ul>
         </nav>
       </div>
     </header>
     <!--spotlight starts-->
     <section class="wrap-spotlight">
       <h2 class="hidden">Spotlight </h2>
-      <div class="container"><img src="images/spotlight.jpg" class="img-responsive">
-        <div class="spot-details container">
-          <h3>Spot Details Heading</h3>
-          <a href="#" class="read-more"></a>
+      <div class="container">
+        <div class="row wrap-spot-details">
+          <div class="spot-image col-md-6"><img src="images/satellite.png" class="img-responsive"></div>
+          <div class="spot-details col-md-6">
+            <h3>Spot Details Heading</h3><a href="#" class="read-more">Read More</a></div>
         </div>
         <section class="spot-features-project">
           <h3>Featured Projects</h3>
           <ul>
-            <li>
+            <li class="col-md-3">
               <a href="#">
                 <article>
-                  <h5 class="hidden">Project1</h5><img src="images/project1.jpg" alt="Project1"></article>
+                  <h5 class="hidden">Project1</h5><img src="images/project-image1.jpg" alt="Project1"></article>
               </a>
             </li>
-            <li>
+            <li class="col-md-3">
               <a href="#">
                 <article>
-                  <h5 class="hidden">Project2</h5><img src="images/project2.jpg" alt="Project2"></article>
+                  <h5 class="hidden">Project2</h5><img src="images/project-image2.jpg" alt="Project2"></article>
               </a>
             </li>
-            <li>
+            <li class="col-md-3">
               <a href="#">
                 <article>
-                  <h5 class="hidden">Project3</h5><img src="images/project3.jpg" alt="Project3"></article>
+                  <h5 class="hidden">Project3</h5><img src="images/project-image3.jpg" alt="Project3"></article>
               </a>
             </li>
-            <li>
+            <li class="col-md-3">
               <a href="#">
                 <article>
-                  <h5 class="hidden">Project4</h5><img src="images/project4.jpg" alt="Project4"></article>
+                  <h5 class="hidden">Project4</h5><img src="images/project-image4.jpg" alt="Project4"></article>
               </a>
             </li>
           </ul>
@@ -81,7 +84,7 @@
         <div class="row">
           <section class="col-sm-6">
             <h3>Featured Video</h3>
-            <a href="#"><img src="images/video.jpg" alt="Video"></a>
+            <a href="#" class="video-link"><img src="images/mars-rover.jpg" alt="Video"></a>
           </section>
           <section class="col-sm-6">
             <h3>Latest Blog</h3>
