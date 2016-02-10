@@ -31,29 +31,25 @@ $profilepic-border-color: #d7d7d7;
 $time-picker-border: #CCC;
 $time-picker-header-bg: #d3d3d3;
 
+$default-font: Arial;
+
 //Font Specifications
-$light-font: 'DINNextLTArabic-Light';
-$medium-font: 'DINNextLTArabic-Medium';
+$audiowide-regular: 'audiowide-regular-webfont';
 
 @font-face {
-  font-family: 'DINNextLTArabic-Light';
-  src: url("../fonts/DINNextLTArabic-Light.eot");
-  src: url("../fonts/DINNextLTArabic-Light.woff") format("woff"), url("../fonts/DINNextLTArabic-Light.ttf") format("truetype"), url("../fonts/DINNextLTArabic-Light.svg") format("svg");
-  font-weight: normal;
-  font-style: normal;
-}
-
-@font-face {
-  font-family: 'DINNextLTArabic-Medium';
-  src: url("../fonts/DINNextLTArabic-Medium.eot");
-  src: url("../fonts/DINNextLTArabic-Medium.woff") format("woff"), url("../fonts/DINNextLTArabic-Medium.ttf") format("truetype"), url("../fonts/DINNextLTArabic-Medium.svg") format("svg");
-  font-weight: normal;
-  font-style: normal;
+  font-family: $audiowide-regular;
+  src: url('../fonts/audiowide-regular-webfont.eot');
+  src: url('../fonts/audiowide-regular-webfont.woff') format('woff'), url('../fonts/audiowide-regular-webfont.ttf') format('truetype'), url('../fonts/audiowide-regular-webfont.svg') format('svg');
 }
 
 //Mixins
 // Functions
 
+//Float element left or right
+
+@mixin floatElement($direction) {
+  float: $direction;
+}
 // Convert pixels to ems
 // eg. for a relational value of 12px write em(12) when the parent is 16px
 // if the parent is another value say 24px write em(12, 24)
@@ -72,13 +68,13 @@ $medium-font: 'DINNextLTArabic-Medium';
 %readmore {
   font-size: em(16);
   text-transform: uppercase;
-  font-family: $light-font;
+  font-family: $audiowide-regular;
 }
 
 //Clearfix
 %clearfix {
   &:after {
-    content: "";
+    content: "";    
     display: table;
     clear: both;
   }
@@ -160,172 +156,26 @@ $medium-font: 'DINNextLTArabic-Medium';
     }
   }
 }
-
 // Media queries
-$scr-320: 320px;
-$scr-360: 360px;
-$scr-481: 481px;
-$scr-520: 520px;
-$scr-600: 600px;
-$scr-667: 667px;
-$scr-767: 767px;
-$scr-768: 768px;
-$scr-800: 800px;
-$scr-979: 979px;
-$scr-991: 991px;
-$scr-1024: 1024px;
-$scr-1055: 1055px;
-$scr-1199: 1199px;
-$scr-1200: 1200px;
-$scr-1279: 1279px;
-$scr-1280: 1280px;
-$scr-1320: 1320px;
-$scr-1321: 1321px;
-$scr-1400: 1400px;
-$scr-1500: 1500px;
-$scr-1600: 1600px;
-$scr-2000: 2000px;
+$breakpoints: (
+  'mq-1200': (max-width: 1200px),
+  'mq-1024': (max-width: 1024px),
+  'mq-992': (max-width: 992px),
+  'mq-768': (max-width: 768px),
+  'mq-480': (max-width: 480px),
+  'mq-320': (max-width: 320px),
+);
+@mixin respond-to($breakpoint) {
+  $raw-query: map-get($breakpoints, $breakpoint);
 
-@mixin scr-320 {
-    @media (max-width: #{$scr-320}) {
-        @content;
-    }
-}
+  @if $raw-query {
+    $query: if(type-of($raw-query) == 'string', unquote($raw-query), inspect($raw-query));
 
-@mixin scr-360 {
-    @media (max-width: #{$scr-360}) {
-        @content;
+    @media #{$query} {
+      @content;
     }
-}
-
-@mixin scr-481 {
-    @media (max-width: #{$scr-481}) {
-        @content;
-    }
-}
-
-@mixin scr-520 {
-    @media (max-width: #{$scr-520}) {
-        @content;
-    }
-}
-
-@mixin scr-667 {
-    @media (max-width: #{$scr-667}) {
-        @content;
-    }
-}
-
-@mixin scr-600 {
-    @media (max-width: #{$scr-600}) {
-        @content;
-    }
-}
-
-@mixin scr-767 {
-    @media (max-width: #{$scr-767}) {
-        @content;
-    }
-}
-
-@mixin scr-768 {
-    @media (min-width: #{$scr-768}) {
-        @content;
-    }
-}
-
-@mixin scr-800 {
-    @media (max-width: #{$scr-800}) {
-        @content;
-    }
-}
-
-@mixin scr-979 {
-    @media (max-width: #{$scr-979}) {
-        @content;
-    }
-}
-
-@mixin scr-991 {
-    @media (max-width: #{$scr-991}) {
-        @content;
-    }
-}
-
-@mixin scr-1024 {
-    @media (max-width: #{$scr-1024}) {
-        @content;
-    }
-}
-
-@mixin scr-1025 {
-    @media (min-width: #{$scr-1024}) {
-        @content;
-    }
-}
-
-@mixin scr-1055 {
-    @media (max-width: #{$scr-1055}) {
-        @content;
-    }
-}
-
-@mixin scr-1199 {
-    @media (max-width: #{$scr-1199}) {
-        @content;
-    }
-}
-
-@mixin scr-1200 {
-    @media (min-width: #{$scr-1200}) {
-        @content;
-    }
-}
-
-@mixin scr-1279 {
-    @media (max-width: #{$scr-1279}) {
-        @content;
-    }
-}
-
-@mixin scr-1280 {
-    @media (min-width: #{$scr-1280}) {
-        @content;
-    }
-}
-
-@mixin scr-1320 {
-    @media (max-width: #{$scr-1320}) {
-        @content;
-    }
-}
-
-@mixin scr-1321 {
-    @media (min-width: #{$scr-1321}) {
-        @content;
-    }
-}
-
-@mixin scr-1400 {
-    @media (max-width: #{$scr-1400}) {
-        @content;
-    }
-}
-
-@mixin scr-1500 {
-    @media (max-width: #{$scr-1500}) {
-        @content;
-    }
-}
-
-@mixin scr-1600 {
-    @media (max-width: #{$scr-1600}) {
-        @content;
-    }
-}
-
-@mixin scr-2000 {
-    @media (min-width: #{$scr-2000}) {
-        @content;
-    }
+  } @else {
+    @error 'No value found for `#{$breakpoint}`. '
+         + 'Please make sure it is defined in `$breakpoints` map.';
+  }
 }

@@ -9,22 +9,23 @@ html
 		<!--main content starts-->
 		div.main
 			<!--header starts-->
-			header.global-header.container
-				div.logo
-					h1
-						a(href='#', title='Demo App')
-							img(src='images/logo.png', alt='Demo App')
-				nav.global-navigation
-					h2.hidden Global Navigation
-					mixin global-nav(value, title)
-						li
-							a(href='#', title=title)= value
-					ul
-						+global-nav('HOME', 'Home')
-						+global-nav('ABOUT', 'About')
-						+global-nav('PROJECTS', 'Projects')
-						+global-nav('BLOG', 'Blog')
-						+global-nav('CONTACT', 'Contact')
+			header.global-header
+				.container
+					div.logo
+						h1
+							a(href='#', title='Demo App')
+								img(src='images/logo.png', alt='Demo App')
+					nav.global-navigation
+						h2.hidden Global Navigation
+						mixin global-nav(value, title)
+							li
+								a(href='#', title=title)= value
+						ul
+							+global-nav('HOME', 'Home')
+							+global-nav('ABOUT', 'About')
+							+global-nav('PROJECTS', 'Projects')
+							+global-nav('BLOG', 'Blog')
+							+global-nav('CONTACT', 'Contact')
 			<!--spotlight starts-->
 			section.wrap-spotlight
 				h2.hidden Spotlight 
@@ -73,6 +74,7 @@ html
 							ul
 								+blog-list('images/blog1.jpg', 'Blog1', ' February 6, 2023')
 								+blog-list('images/blog2.jpg', 'Blog2', ' February 6, 2023')
+			<!--footer starts-->
 			footer.wrap-footer
 				.footer-top
 					.container
@@ -86,7 +88,7 @@ html
 							+social-links('googleplus-link')
 							+social-links('pinterest-link')
 				.footer-bottom
-					.container
+					.containers
 						p © 2023 BY SPACE PROSPECTION | ALL RIGHTS RESERVED
 
 
